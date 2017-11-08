@@ -106,8 +106,7 @@ class GremlinClient extends EventEmitter {
     let rawMessage, requestId, statusCode, statusMessage;
     try {
       const { data } = message;
-      const buffer = new Buffer(data, 'binary');
-      rawMessage = JSON.parse(buffer.toString('utf-8'));
+      rawMessage = JSON.parse(data);
       requestId = rawMessage.requestId;
       statusCode = rawMessage.status.code;
       statusMessage = rawMessage.status.message;
